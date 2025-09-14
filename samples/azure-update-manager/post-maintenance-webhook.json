@@ -1,0 +1,103 @@
+{
+  "eventType": "Microsoft.UpdateManager.PostMaintenance",
+  "eventTime": "2024-01-15T10:30:00Z",
+  "id": "12345678-abcd-1234-5678-abcdefgh1234",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "subject": "PostMaintenanceEvent",
+  "data": {
+    "resourceId": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+    "resourceName": "myVM",
+    "resourceGroup": "myResourceGroup",
+    "subscriptionId": "12345678-1234-1234-1234-123456789abc",
+    "maintenanceRunId": "maintenance-run-456789",
+    "maintenanceConfigurationId": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/myResourceGroup/providers/Microsoft.Maintenance/maintenanceConfigurations/myMaintenanceConfig",
+    "status": "Completed",
+    "startTime": "2024-01-15T10:00:00Z",
+    "endTime": "2024-01-15T10:30:00Z",
+    "updates": [
+      {
+        "updateId": "update-001",
+        "title": "Security Update for Windows Server 2022",
+        "classification": "SecurityUpdates",
+        "kbId": "KB5034441",
+        "size": "25.6 MB",
+        "installationStatus": "Installed",
+        "rebootRequired": true,
+        "publishedDate": "2024-01-10T00:00:00Z",
+        "lastModifiedTime": "2024-01-15T10:15:00Z"
+      },
+      {
+        "updateId": "update-002", 
+        "title": "Critical Update for Windows Server 2022",
+        "classification": "CriticalUpdates",
+        "kbId": "KB5034442",
+        "size": "12.3 MB", 
+        "installationStatus": "Installed",
+        "rebootRequired": false,
+        "publishedDate": "2024-01-08T00:00:00Z",
+        "lastModifiedTime": "2024-01-15T10:25:00Z"
+      },
+      {
+        "updateId": "update-003",
+        "title": "Definition Update for Windows Defender",
+        "classification": "DefinitionUpdates", 
+        "kbId": "KB5034443",
+        "size": "5.1 MB",
+        "installationStatus": "Failed",
+        "rebootRequired": false,
+        "publishedDate": "2024-01-14T00:00:00Z",
+        "lastModifiedTime": "2024-01-15T10:20:00Z",
+        "errorCode": "0x80070005",
+        "errorMessage": "Access denied"
+      }
+    ],
+    "summary": {
+      "totalUpdates": 3,
+      "successfulUpdates": 2,
+      "failedUpdates": 1,
+      "rebootRequired": true,
+      "rebootStatus": "Pending",
+      "nextMaintenanceWindow": "2024-01-22T10:00:00Z"
+    },
+    "machine": {
+      "computerName": "myVM",
+      "osType": "Windows",
+      "osVersion": "Microsoft Windows Server 2022 Datacenter",
+      "architecture": "x64",
+      "ipAddress": "10.0.0.4",
+      "lastBootUpTime": "2024-01-10T08:00:00Z",
+      "timezone": "UTC"
+    },
+    "maintenanceConfiguration": {
+      "name": "myMaintenanceConfig",
+      "maintenanceWindow": {
+        "startTime": "10:00",
+        "duration": "PT2H",
+        "timeZone": "UTC",
+        "recurEvery": "Week",
+        "dayOfWeek": "Monday"
+      },
+      "installPatches": {
+        "windowsParameters": {
+          "classificationsToInclude": [
+            "Critical",
+            "Security", 
+            "UpdateRollup",
+            "FeaturePack",
+            "ServicePack",
+            "Definition",
+            "Tools",
+            "Updates"
+          ],
+          "kbNumbersToInclude": [],
+          "kbNumbersToExclude": [],
+          "rebootSetting": "IfRequired"
+        }
+      }
+    },
+    "correlationId": "correlation-789012",
+    "operationId": "operation-345678"
+  }
+}
